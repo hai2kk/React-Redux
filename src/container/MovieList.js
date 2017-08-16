@@ -1,24 +1,41 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import moment from 'moment';
 
 class MovieList extends Component{
     renderMovieDetail(movieData){
-        return(
-            <li className="list-group-item">{movieData.display_title}</li>
-        )
+            const releaseDate = moment(movieData.opening_date,"YYYY-MM-DD").year()
+
+            if(movieData.hasOwnProperty('multimedia') && movieData.multimedia !== null){
+                return(
+                       <li className="list-group-item">
+                            <a href={movieData.link.url} target="_blank">
+                                <img src={movieData.multimedia.src} height="50" width="50" />
+                                <span className="linkText">{movieData.display_title}({releaseDate})</span>
+                            </a>
+                        </li>
+                )
+            }else{
+                return(
+                       <li className="list-group-item">
+                            <a href={movieData.link.url} target="_blank">
+                                <span className="linkText">{movieData.display_title}({releaseDate})</span>
+                            </a>
+                        </li>
+                )
+            }
     }
 
     render(){
         return (
-            <ul className="list-group">
-                {this.props.movieDetail.map(this.renderMovieDetail)}
-          </ul>
+           <div className="row text-center movieListItems">
+               {this.props.movieDetail.map(this.renderMovieDetail)}
+           </div>
         )
     }
 }
 
 function mapStateToProps(state){
-    console.log(JSON.stringify(state.movieDetail));
     return { movieDetail : state.movieDetail.searchResults }
 }
 

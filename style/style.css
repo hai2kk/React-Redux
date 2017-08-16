@@ -1,0 +1,23 @@
+body {
+    margin: auto;
+    width: 50%;
+    padding : 10px 10px 10px 10px;
+}
+
+.movieListItems{
+    max-width: 100%;
+    margin: auto;
+    padding : 10px 10px 10px 15px;
+}
+
+.list-group-item a {
+    font-size: 10px
+}
+
+.list-group-item img {
+    padding-right: 10px;
+}
+
+.list-group-item{
+    border-bottom: none;
+}
