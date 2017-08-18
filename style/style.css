@@ -21,3 +21,7 @@ body {
 .list-group-item{
     border-bottom: none;
 }
+
+.clickItem{
+    cursor : pointer;
+}

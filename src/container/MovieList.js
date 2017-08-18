@@ -1,29 +1,21 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import moment from 'moment';
+import MovieListItem from '../components/MovieListItem';
 
 class MovieList extends Component{
+    constructor(props){
+        super(props);
+        //this.onResultClick = this.onResultClick.bind(this);
+    }
+
     renderMovieDetail(movieData){
-            const releaseDate = moment(movieData.opening_date,"YYYY-MM-DD").year()
-            const title = movieData.display_title;
-            const key = `${title}_${releaseDate}`;
-            if(movieData.hasOwnProperty('multimedia') && movieData.multimedia !== null){
-                return(
-                       <li className="list-group-item" key={key}>
-                            <a href={movieData.link.url} target="_blank">
-                                <img src={movieData.multimedia.src} height="50" width="50" />
-                                <span className="linkText">{title}({releaseDate})</span>
-                            </a>
-                        </li>
-                )
-            }else{
-                return(
-                       <li className="list-group-item" key={key}>
-                            <a href={movieData.link.url} target="_blank">
-                                <span className="linkText">{title}({releaseDate})</span>
-                            </a>
-                        </li>
-                )
+            return (
+                <MovieListItem movieData={movieData} key={movieData.id} clickHandler={onResultClick} />
+            )
+
+            function onResultClick(evt){
+                evt.preventDefault();
+                console.log("Hello from child");
             }
     }
 

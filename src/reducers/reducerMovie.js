@@ -9,7 +9,11 @@ export default function(state = defaultState,action){
     console.log("Action received",action);
     switch (action.type){
         case FETCH_MOVIE : 
-            return Object.assign({}, state, {searchResults: action.payload.data.results});
+            let resultArr = action.payload.data.results.map(function(item,index){
+                item.id = index;
+                return item;
+            });
+            return Object.assign({}, state, {searchResults: resultArr});
     }
     return state;
 }
