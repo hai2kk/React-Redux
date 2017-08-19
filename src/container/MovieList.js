@@ -13,9 +13,9 @@ class MovieList extends Component{
                 <MovieListItem movieData={movieData} key={movieData.id} clickHandler={onResultClick} />
             )
 
-            function onResultClick(evt){
+            function onResultClick(movieData,evt){
                 evt.preventDefault();
-                console.log("Hello from child");
+                console.log(movieData);
             }
     }
 
