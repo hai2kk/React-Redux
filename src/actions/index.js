@@ -5,6 +5,7 @@ const ROOT_URL = `https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-
 
 
 export const FETCH_MOVIE = 'FETCH_MOVIE';
+export const SELECT_MOVIE = 'SELECT_MOVIE';
 
 export function fetchMovieDetails(movieName){
     const movieUrl = `${ROOT_URL}&query=${movieName}`;
@@ -13,5 +14,12 @@ export function fetchMovieDetails(movieName){
     return {
         type : FETCH_MOVIE,
         payload : response
+    };
+}
+
+export function fetchSelectedMovies(selectedMovie){
+    return {
+        type : SELECT_MOVIE,
+        payload : selectedMovie
     };
 }

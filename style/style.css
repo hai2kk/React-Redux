@@ -25,3 +25,7 @@ body {
 .clickItem{
     cursor : pointer;
 }
+
+.selectedMovies{
+    max-width: 50%;
+}

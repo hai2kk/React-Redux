@@ -1,9 +1,9 @@
-import {FETCH_MOVIE} from '../actions/index';
+import {FETCH_MOVIE,SELECT_MOVIE} from '../actions/index';
 
 const defaultState = {
     searchResults : [],
     selectedItems : []
-};
+}
 
 export default function(state = defaultState,action){
     console.log("Action received",action);
@@ -14,15 +14,9 @@ export default function(state = defaultState,action){
                 return item;
             });
             return Object.assign({}, state, {searchResults: resultArr});
+        case SELECT_MOVIE :
+            const selectedItemsArr = state.selectedItems.concat(action.payload)
+            return Object.assign({}, state, {selectedItems: selectedItemsArr});
     }
     return state;
 }
-
-/*export default function(state = [],action){
-    console.log("Action received",action);
-    switch (action.type){
-        case FETCH_MOVIE : 
-            return state.concat(action.payload.data.results);
-    }
-    return state;
-}*/
