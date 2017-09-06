@@ -12,7 +12,7 @@ class MovieList extends Component{
 
     renderMovieDetail(onClickMovieItem,movieData){
             return (
-                <MovieListItem movieData={movieData} key={movieData.id} clickHandler={onResultClick} />
+               <MovieListItem movieData={movieData} key={movieData.id} clickHandler={onResultClick} />
             )
 
             function onResultClick(movieData,evt){

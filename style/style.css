@@ -29,3 +29,7 @@ body {
 .selectedMovies{
     max-width: 50%;
 }
+
+.layout-main{
+    padding: 30px 0;
+  }

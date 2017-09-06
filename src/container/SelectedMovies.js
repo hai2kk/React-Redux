@@ -9,11 +9,10 @@ class SelectedMovies extends Component{
 
     render(){
         const selectedMovieImgs = this.props.selectedMovies.filter(function(selectedMovie){
-            return (selectedMovie.multimedia !== undefined &&  selectedMovie.multimedia.src !== undefined);
+            return (selectedMovie.multimedia !== undefined && selectedMovie.multimedia != null &&  selectedMovie.multimedia.src !== undefined);
         }).map(function(imgItem){
             return imgItem.multimedia.src;
         });
-        console.log(selectedMovieImgs);
             
         return (
             <div className="selectedMovies">
